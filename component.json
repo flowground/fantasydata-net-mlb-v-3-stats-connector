@@ -1,0 +1,556 @@
+{
+    "title": "MLB v3 Stats",
+    "description": "MLB scores, stats, and news API.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/fantasydata.net/mlb-v3-stats/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://api.fantasydata.net/v3/mlb/stats",
+                    "https://api.fantasydata.net/v3/mlb/stats",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "apiKeyHeader": {
+                "label": "Ocp-Apim-Subscription-Key (apiKeyHeader)",
+                "viewClass": "TextFieldView"
+            },
+            "apiKeyQuery": {
+                "label": "subscription-key (apiKeyQuery)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "TeamsAll": {
+            "main": "./lib/actions/TeamsAll.js",
+            "title": "Teams (All)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TeamsAll.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AreGamesInProgress": {
+            "main": "./lib/actions/AreGamesInProgress.js",
+            "title": "Are Games In Progress",
+            "description": "Returns <code>true</code> if there is at least one game being played at the time of the request or <code>false</code> if there are none.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AreGamesInProgress.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BoxScore": {
+            "main": "./lib/actions/BoxScore.js",
+            "title": "Box Score",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BoxScore.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BoxScoresByDate": {
+            "main": "./lib/actions/BoxScoresByDate.js",
+            "title": "Box Scores by Date",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BoxScoresByDate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BoxScoresByDateDelta": {
+            "main": "./lib/actions/BoxScoresByDateDelta.js",
+            "title": "Box Scores by Date Delta",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BoxScoresByDateDelta.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CurrentSeason": {
+            "main": "./lib/actions/CurrentSeason.js",
+            "title": "Current Season",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CurrentSeason.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DfsSlatesByDate": {
+            "main": "./lib/actions/DfsSlatesByDate.js",
+            "title": "DFS Slates by Date",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DfsSlatesByDate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlayerDetailsByFreeAgents": {
+            "main": "./lib/actions/PlayerDetailsByFreeAgents.js",
+            "title": "Player Details by Free Agents",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlayerDetailsByFreeAgents.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Schedules": {
+            "main": "./lib/actions/Schedules.js",
+            "title": "Schedules",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Schedules.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GamesByDate": {
+            "main": "./lib/actions/GamesByDate.js",
+            "title": "Games by Date",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GamesByDate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BatterVsPitcherStats": {
+            "main": "./lib/actions/BatterVsPitcherStats.js",
+            "title": "Batter vs. Pitcher Stats",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BatterVsPitcherStats.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "News": {
+            "main": "./lib/actions/News.js",
+            "title": "News",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/News.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "NewsByDate": {
+            "main": "./lib/actions/NewsByDate.js",
+            "title": "News by Date",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/NewsByDate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "NewsByPlayer": {
+            "main": "./lib/actions/NewsByPlayer.js",
+            "title": "News by Player",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/NewsByPlayer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlayerDetailsByPlayer": {
+            "main": "./lib/actions/PlayerDetailsByPlayer.js",
+            "title": "Player Details by Player",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlayerDetailsByPlayer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlayerGameStatsByDate": {
+            "main": "./lib/actions/PlayerGameStatsByDate.js",
+            "title": "Player Game Stats by Date",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlayerGameStatsByDate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlayerGameStatsByPlayer": {
+            "main": "./lib/actions/PlayerGameStatsByPlayer.js",
+            "title": "Player Game Stats by Player",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlayerGameStatsByPlayer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlayerSeasonAwayStats": {
+            "main": "./lib/actions/PlayerSeasonAwayStats.js",
+            "title": "Player Season Away Stats",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlayerSeasonAwayStats.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlayerSeasonHomeStats": {
+            "main": "./lib/actions/PlayerSeasonHomeStats.js",
+            "title": "Player Season Home Stats",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlayerSeasonHomeStats.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlayerSeasonSplitStats": {
+            "main": "./lib/actions/PlayerSeasonSplitStats.js",
+            "title": "Player Season Split Stats",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlayerSeasonSplitStats.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlayerSeasonStats": {
+            "main": "./lib/actions/PlayerSeasonStats.js",
+            "title": "Player Season Stats",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlayerSeasonStats.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlayerSeasonStatsByPlayer": {
+            "main": "./lib/actions/PlayerSeasonStatsByPlayer.js",
+            "title": "Player Season Stats By Player",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlayerSeasonStatsByPlayer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlayerSeasonStatsByTeam": {
+            "main": "./lib/actions/PlayerSeasonStatsByTeam.js",
+            "title": "Player Season Stats by Team",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlayerSeasonStatsByTeam.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlayerSeasonStatsSplitByTeam": {
+            "main": "./lib/actions/PlayerSeasonStatsSplitByTeam.js",
+            "title": "Player Season Stats Split By Team",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlayerSeasonStatsSplitByTeam.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlayerDetailsByActive": {
+            "main": "./lib/actions/PlayerDetailsByActive.js",
+            "title": "Player Details by Active",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlayerDetailsByActive.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlayersByTeam": {
+            "main": "./lib/actions/PlayersByTeam.js",
+            "title": "Players by Team",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlayersByTeam.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Stadiums": {
+            "main": "./lib/actions/Stadiums.js",
+            "title": "Stadiums",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Stadiums.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Standings": {
+            "main": "./lib/actions/Standings.js",
+            "title": "Standings",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Standings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TeamGameStatsByDate": {
+            "main": "./lib/actions/TeamGameStatsByDate.js",
+            "title": "Team Game Stats by Date",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TeamGameStatsByDate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TeamHittingVsStartingPitcher": {
+            "main": "./lib/actions/TeamHittingVsStartingPitcher.js",
+            "title": "Team Hitting vs. Starting Pitcher",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TeamHittingVsStartingPitcher.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TeamSeasonStats": {
+            "main": "./lib/actions/TeamSeasonStats.js",
+            "title": "Team Season Stats",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TeamSeasonStats.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TeamsActive": {
+            "main": "./lib/actions/TeamsActive.js",
+            "title": "Teams (Active)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TeamsActive.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

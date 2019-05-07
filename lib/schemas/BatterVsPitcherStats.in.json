@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "format": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "XML",
+                "JSON"
+            ],
+            "default": "XML"
+        },
+        "hitterid": {
+            "required": true,
+            "type": "string"
+        },
+        "pitcherid": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "format": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "XML",
+                "JSON"
+            ],
+            "default": "XML"
+        },
+        "season": {
+            "required": true,
+            "type": "string"
+        },
+        "split": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "L",
+                "R",
+                "S"
+            ],
+            "default": "L"
+        }
+    }
+}
